@@ -10,7 +10,7 @@
     name: "{{ packages_focal }}"
   when: ansible_facts["distribution_release"] == "focal"
 
-  - name: install python package
+- name: install python package
   become: yes
   pip:
     name: pipenv
