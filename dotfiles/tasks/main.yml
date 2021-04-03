@@ -1,0 +1,37 @@
+- name: ユーザ設定ファイルをチェックアウト
+  git:
+    repo: https://github.com/tateishi/dotfiles.git
+    dest: ~/.dotfiles
+
+- name: make XDG_CONFIG_HOME directories
+  file:
+    path: "{{ item.path }}"
+    state: directory
+  loop:
+    - path: ~/.config/git
+
+- name: 設定ファイルをリンク
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  loop:
+    - src:  ~/.dotfiles/git/config
+      dest: ~/.config/git/config
+    - src:  ~/.dotfiles/tmux/tmux.conf
+      dest: ~/.tmux.conf
+    - src:  ~/.dotfiles/ledger/ledgerrc
+      dest: ~/.ledgerrc
+
+- name: bashrc に追加
+  blockinfile:
+    dest: ~/.bashrc
+    block: |
+      SCRIPT_DIR=~/.dotfiles/bash
+
+      if [ -d ${SCRIPT_DIR} ]; then
+          for script in $( find ${SCRIPT_DIR} -name "[0-9][0-9]-*[^~]" | sort )
+          do
+              [ -f ${script} ] && source ${script}
+          done
+      fi

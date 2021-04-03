@@ -1,0 +1,21 @@
+- name: software-properties-commonインストール
+  become: true
+  apt:
+    name: software-properties-common
+    update_cache: yes
+
+- name: install common package
+  become: yes
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - git
+    - tig
+    - tmux
+    - screen
+    - tree
+    - htop
+    - lxd
+    - mc
+    - bash-completion

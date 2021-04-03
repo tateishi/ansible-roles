@@ -1,0 +1,4 @@
+- name: タイムゾーンを設定する
+  become: yes
+  timezone:
+    name: Asia/Tokyo

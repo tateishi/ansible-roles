@@ -1,0 +1,35 @@
+- name: emacs install
+  become: true
+  snap:
+    name: emacs
+    classic: true
+
+- name: make .config/emacs directory
+  file:
+    path: ~/.config/emacs
+    state: directory
+
+- name: clone emacs-cask setting
+  git:
+    repo: https://github.com/tateishi/emacs-cask.git
+    dest: ~/.config/emacs/cask
+
+- name: clone chemacs2
+  git:
+    repo: https://github.com/plexus/chemacs2.git
+    dest: ~/.emacs.d
+
+- name: make .config/chemacs directory
+  file:
+    path: ~/.config/chemacs
+    state: directory
+
+- name: copy profiles.el
+  copy:
+    src: profiles.el
+    dest: ~/.config/chemacs/profiles.el
+
+- name: clone cask
+  git:
+    repo: https://github.com/cask/cask.git
+    dest: ~/.cask
