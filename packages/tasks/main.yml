@@ -16,7 +16,6 @@
     - screen
     - tree
     - htop
-    - lxd
     - mc
     - bash-completion
     - silversearcher-ag
