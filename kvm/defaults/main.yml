@@ -1,0 +1,17 @@
+pkgs_bionic:
+  - bridge-utils
+  - python-gi=3.26.1-2
+  - libguestfs-tools
+  - libosinfo-bin
+  - libvirt-bin
+  - libvirt0
+  - qemu-kvm
+  - virt-top
+  - virtinst
+
+pkgs_focal:
+  - bridge-utils
+  - libvirt-clients
+  - libvirt-daemon-system
+  - virtinst
+  - qemu-kvm

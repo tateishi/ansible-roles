@@ -1,0 +1,13 @@
+- name: kvm tools インストール for Bionic
+  become: true
+  apt:
+    name: "{{ pkgs_bionic }}"
+    update_cache: yes
+  when: ansible_facts.lsb.codename == 'bionic'
+
+- name: kvm tools インストール for Focal
+  become: true
+  apt:
+    name: "{{ pkgs_focal }}"
+    update_cache: yes
+  when: ansible_facts.lsb.codename == 'focal'
