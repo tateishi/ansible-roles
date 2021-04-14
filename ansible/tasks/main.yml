@@ -1,0 +1,10 @@
+- name: ansibleのリポジトリ追加
+  become: true
+  apt_repository:
+    repo: ppa:ansible/ansible
+
+- name: ansibleインストール
+  become: true
+  apt:
+    name: ansible
+    update_cache: yes
