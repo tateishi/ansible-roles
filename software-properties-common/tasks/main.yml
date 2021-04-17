@@ -1,0 +1,6 @@
+- name: software-properties-commonインストール
+  become: true
+  apt:
+    name: software-properties-common
+    update_cache: yes
+
