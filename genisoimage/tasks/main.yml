@@ -1,0 +1,7 @@
+- name: install genisoimage
+  become: yes
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - genisoimage
