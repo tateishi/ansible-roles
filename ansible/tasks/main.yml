@@ -8,3 +8,13 @@
   apt:
     name: ansible
     update_cache: yes
+
+- name: ansible role directory
+  file:
+    path: ~/.local/lib/ansible
+    state: directory
+
+- name: checkout roles
+  git:
+    repo: https://github.com/tateishi/ansible-roles.git
+    dest: ~/.local/lib/ansible/roles
