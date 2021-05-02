@@ -1,0 +1,13 @@
+# packages:
+#   - minidlna
+
+radio:
+  repo:
+    url: http://git.tateishi/git/tadatoshi/radio.git
+    path: /opt/radio
+  data:
+    path: /var/lib/radio
+  log:
+    path: /var/log/radio
+  job:
+    cmd: "python3 /opt/radio/nhk-r2.py"

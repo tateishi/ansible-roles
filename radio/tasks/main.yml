@@ -1,0 +1,94 @@
+# - name: install packages
+#   become: yes
+#   apt:
+#     name: "{{ packages }}"
+#     update_cache: yes
+
+- name: install ffmpeg
+  apt:
+    name: ffmpeg
+
+- name: make data directory
+  become: true
+  file:
+    name: "{{ radio.data.path }}"
+    state: directory
+
+- name: make script directory
+  become: true
+  file:
+    name: "{{ radio.repo.path }}"
+    state: directory
+
+- name: make log directory
+  become: true
+  file:
+    name: "{{ radio.log.path }}"
+    state: directory
+
+- name: checkout repository
+  become: true
+  git:
+    repo: "{{ radio.repo.url }}"
+    dest: "{{ radio.repo.path }}"
+
+- name: crontab test
+  become: true
+  cron:
+    name: test job
+    minute: "0"
+    job: "{{ radio.job.cmd }} /opt/radio/test_2.yaml >> {{ radio.log.path }}/test.log 2>&1"
+
+- name: basic english 0
+  become: true
+  cron:
+    name: basic english 0
+    minute: "35"
+    hour: "18"
+    weekday: "1"
+    job: "{{ radio.job.cmd }} /opt/radio/basic_english_0_2.yaml >> {{ radio.log.path }}/basic_english0.log 2>&1"
+
+- name: basic english 1
+  become: true
+  cron:
+    name: basic english 1
+    minute: "0"
+    hour: "6"
+    weekday: "1-5"
+    job: "{{ radio.job.cmd }} /opt/radio/basic_english_1_2.yaml >> {{ radio.log.path }}/basic_english1.log 2>&1"
+
+- name: basic english 2
+  become: true
+  cron:
+    name: basic english 2
+    minute: "15"
+    hour: "6"
+    weekday: "1-5"
+    job: "{{ radio.job.cmd }} /opt/radio/basic_english_2_2.yaml >> {{ radio.log.path }}/basic_english2.log 2>&1"
+
+- name: basic english 3
+  become: true
+  cron:
+    name: basic english 3
+    minute: "30"
+    hour: "6"
+    weekday: "1-5"
+    job: "{{ radio.job.cmd }} /opt/radio/basic_english_3_2.yaml >> {{ radio.log.path }}/basic_english3.log 2>&1"
+
+- name: radio english
+  become: true
+  cron:
+    name: radio english
+    minute: "45"
+    hour: "6"
+    weekday: "1-5"
+    job: "{{ radio.job.cmd }} /opt/radio/radio_english_2.yaml >> {{ radio.log.path }}/radio_english.log 2>&1"
+
+- name: everyday chinese
+  become: true
+  cron:
+    name: everyday chinese
+    minute: "15"
+    hour: "8"
+    weekday: "1-5"
+    job: "{{ radio.job.cmd }} /opt/radio/everyday_chinese_2.yaml >> {{ radio.log.path }}/everyday_chinese.log 2>&1"
