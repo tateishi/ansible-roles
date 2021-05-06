@@ -1,0 +1,49 @@
+- name: bind-secondary
+  become: true
+  apt:
+    name:
+      - bind9
+    update_cache: yes
+
+- name: start bind
+  become: true
+  service:
+    name: bind9
+    state: started
+    enabled: yes
+
+- name: make directory for secondary zone dump
+  become: true
+  file:
+    path: "{{ dns_dump.path }}"
+    state: directory
+    owner: "{{ dns_dump.owner }}"
+    group: "{{ dns_dump.group }}"
+    mode:  "{{ dns_dump.mode }}"
+
+- name: make directory for log
+  become: true
+  file:
+    path: "{{ dns_log.path }}"
+    state: directory
+    owner: "{{ dns_log.owner }}"
+    group: "{{ dns_log.group }}"
+    mode:  "{{ dns_log.mode }}"
+
+- name: copy named.conf.options
+  become: true
+  template:
+    src: named.conf.options.j2
+    dest: "{{ dns.config_dir }}/named.conf.options"
+    owner: root
+    group: bind
+  notify: reload bind
+
+- name: copy named.conf.local
+  become: true
+  template:
+    src: named.conf.local.j2
+    dest: "{{ dns.config_dir }}/named.conf.local"
+    owner: root
+    group: bind
+  notify: reload bind

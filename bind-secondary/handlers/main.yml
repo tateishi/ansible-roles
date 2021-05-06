@@ -1,0 +1,11 @@
+- name: restart bind
+  become: true
+  service:
+    name: bind9
+    state: restarted
+
+- name: reload bind
+  become: true
+  service:
+    name: bind9
+    state: reloaded
