@@ -32,13 +32,6 @@
     repo: "{{ radio.repo.url }}"
     dest: "{{ radio.repo.path }}"
 
-- name: crontab test
-  become: true
-  cron:
-    name: test job
-    minute: "0"
-    job: "{{ radio.job.cmd }} /opt/radio/test_2.yaml >> {{ radio.log.path }}/test.log 2>&1"
-
 - name: basic english 0
   become: true
   cron:
