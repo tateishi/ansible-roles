@@ -18,6 +18,7 @@
   git:
     repo: https://github.com/plexus/chemacs2.git
     dest: ~/.emacs.d
+    version: 30a2
 
 - name: make .config/chemacs directory
   file:
