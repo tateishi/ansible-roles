@@ -1,4 +1,4 @@
-- name: software-properties-commonインストール
+- name: install software-properties-common
   become: true
   apt:
     name: software-properties-common
