@@ -20,8 +20,6 @@
       dest: ~/.config/git/config
     - src:  ~/.dotfiles/tmux/tmux.conf
       dest: ~/.tmux.conf
-    - src:  ~/.dotfiles/ledger/ledgerrc
-      dest: ~/.ledgerrc
 
 - name: add bash script to bashrc
   blockinfile:
