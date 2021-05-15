@@ -1,4 +1,4 @@
-- name: タイムゾーンを設定する
+- name: set timezone to tokyo
   become: yes
   timezone:
     name: Asia/Tokyo
