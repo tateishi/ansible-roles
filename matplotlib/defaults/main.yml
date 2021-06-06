@@ -1,0 +1,8 @@
+font:
+  pkg:
+    - fonts-noto-cjk
+  family: "Noto Sans CJK JP"
+
+config:
+  path: ".config/matplotlib"
+  file: "matplotlibrc"

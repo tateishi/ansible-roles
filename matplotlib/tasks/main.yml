@@ -1,0 +1,14 @@
+- name: make matplotlib config directory
+  file:
+    name: "{{ config.path }}"
+    state: directory
+
+- name: copy config file
+  template:
+    src: "templates/{{ config.file }}.j2"
+    dest: "{{ config.path }}/{{ config.file }}"
+
+- name: install packages
+  become: true
+  apt:
+    name: "{{ font.pkg }}"
