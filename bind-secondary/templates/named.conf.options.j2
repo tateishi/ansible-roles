@@ -5,9 +5,9 @@ options {
 	// to talk to, you may need to fix the firewall to allow multiple
 	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
 
-	// If your ISP provided one or more IP addresses for stable 
-	// nameservers, you probably want to use them as forwarders.  
-	// Uncomment the following block, and insert the addresses replacing 
+	// If your ISP provided one or more IP addresses for stable
+	// nameservers, you probably want to use them as forwarders.
+	// Uncomment the following block, and insert the addresses replacing
 	// the all-0's placeholder.
 
 	// forwarders {
@@ -18,6 +18,12 @@ options {
         {% for forwarder in dns.forwarders %}
            {{ forwarder }};
         {% endfor -%}
+        };
+
+        allow-query {
+            10.0.0.0/8;
+            172.16.0.0/12;
+            192.168.0.0/16;
         };
 
         //========================================================================
