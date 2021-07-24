@@ -10,6 +10,12 @@
     name: "{{ packages_focal }}"
   when: ansible_facts["distribution_release"] == "focal"
 
+- name: install python for hirsute
+  become: yes
+  apt:
+    name: "{{ packages_hirsute }}"
+  when: ansible_facts["distribution_release"] == "hirsute"
+
 - name: install python package
   become: yes
   pip:
