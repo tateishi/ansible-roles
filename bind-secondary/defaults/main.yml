@@ -1,7 +1,7 @@
 dns:
   zone: tateishi
   masters:
-    - 10.11.1.35
+    - 10.11.1.32
   forwarders:
     - 8.8.8.8
     - 8.8.4.4
