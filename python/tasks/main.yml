@@ -16,6 +16,12 @@
     name: "{{ packages_hirsute }}"
   when: ansible_facts["distribution_release"] == "hirsute"
 
+- name: install python for impish
+  become: yes
+  apt:
+    name: "{{ packages_impish }}"
+  when: ansible_facts["distribution_release"] == "impish"
+
 - name: install python package
   become: yes
   pip:
