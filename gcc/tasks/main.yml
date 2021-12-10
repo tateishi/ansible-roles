@@ -1,0 +1,8 @@
+- name: install build-essential
+  become: yes
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - build-essential
+    - cmake
