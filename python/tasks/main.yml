@@ -22,8 +22,11 @@
     name: "{{ packages_impish }}"
   when: ansible_facts["distribution_release"] == "impish"
 
-- name: install python package
-  become: yes
+- name: install python package in user
   pip:
-    name: pipenv
+    name:
+      - pipenv
+      - black
+      - isort
     executable: pip3
+    extra_args: --user
