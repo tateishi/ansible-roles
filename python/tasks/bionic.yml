@@ -1,0 +1,20 @@
+- name: prerequisite
+  become: yes
+  apt:
+    name: software-properties-common
+
+- name: add deadsnakes
+  become: yes
+  apt_repository:
+    repo: "{{ repository }}"
+
+- name: install python for bionic
+  become: yes
+  apt:
+    name: "{{ packages_bionic }}"
+
+- name: install extra version of python for bionic
+  become: yes
+  apt:
+    name: "{{ packages_bionic_ex }}"
+  when: (python_extra_version is defined) and python_extra_version

@@ -1,0 +1,4 @@
+- name: install python for impish
+  become: yes
+  apt:
+    name: "{{ packages_impish }}"

@@ -1,0 +1,4 @@
+- name: install python for hirsute
+  become: yes
+  apt:
+    name: "{{ packages_hirsute }}"

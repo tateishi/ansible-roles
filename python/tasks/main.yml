@@ -1,36 +1,18 @@
-- name: prerequisite
-  become: yes
-  apt:
-    name: software-properties-common
+- name: include install tasks for bionic
+  include_tasks: bionic.yml
+  when: ansible_distribution_release == "bionic"
 
-- name: add deadsnakes
-  become: yes
-  apt_repository:
-    repo: "{{ repository }}"
-
-- name: install python for bionic
-  become: yes
-  apt:
-    name: "{{ packages_bionic }}"
-  when: ansible_facts["distribution_release"] == "bionic"
-
-- name: install python for focal
-  become: yes
-  apt:
-    name: "{{ packages_focal }}"
+- name: include install tasks for focal
+  include_tasks: focal.yml
   when: ansible_distribution_release == "focal"
 
-- name: install python for hirsute
-  become: yes
-  apt:
-    name: "{{ packages_hirsute }}"
-  when: ansible_facts["distribution_release"] == "hirsute"
+- name: include install tasks for hirsute
+  include_tasks: hirsute.yml
+  when: ansible_distribution_release == "hirsute"
 
-- name: install python for impish
-  become: yes
-  apt:
-    name: "{{ packages_impish }}"
-  when: ansible_facts["distribution_release"] == "impish"
+- name: include install tasks for impish
+  include_tasks: impish.yml
+  when: ansible_distribution_release == "impish"
 
 - name: install python package in user
   pip:
