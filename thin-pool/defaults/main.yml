@@ -1,0 +1,4 @@
+drive: /dev/sdb
+vg_name: vg1
+pool_name: pool
+pool_size: "+100%FREE"

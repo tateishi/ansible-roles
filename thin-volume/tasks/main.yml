@@ -1,0 +1,23 @@
+- name: create thin volume
+  become: yes
+  lvol:
+    vg: "{{ vg_name }}"
+    lv: "{{ data_name }}"
+    thinpool: "{{ pool_name }}"
+    size: "{{ data_size }}"
+    state: present
+
+- name: create filesystem
+  become: yes
+  filesystem:
+    fstype: "{{ fstype }}"
+    dev: "/dev/{{ vg_name }}/{{ data_name }}"
+    resizefs: true
+
+- name: mount filesystem
+  become: yes
+  mount:
+    path: "{{ path_name }}"
+    src: "/dev/{{ vg_name }}/{{ data_name }}"
+    fstype: "{{ fstype }}"
+    state: mounted

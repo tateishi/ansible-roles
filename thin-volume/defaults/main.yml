@@ -1,0 +1,6 @@
+vg_name: vg1
+pool_name: pool
+data_name: data
+data_size: "10G"
+fstype: ext4
+path_name: /data

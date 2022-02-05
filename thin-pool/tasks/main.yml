@@ -1,0 +1,24 @@
+- name: prepare gpt partition
+  become: yes
+  parted:
+    device: "{{ drive }}"
+    label: gpt
+    number: 1
+    flags:
+      - lvm
+    state: present
+
+- name: create volume group
+  become: yes
+  lvg:
+    vg: "{{ vg_name }}"
+    pvs: "{{ drive }}1"
+    state: present
+
+- name: create thin pool
+  become: yes
+  lvol:
+    vg: "{{ vg_name }}"
+    thinpool: "{{ pool_name }}"
+    size: "{{ pool_size }}"
+    state: present
