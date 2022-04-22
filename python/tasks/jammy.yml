@@ -1,0 +1,4 @@
+- name: install python for jammy
+  become: yes
+  apt:
+    name: "{{ packages_jammy }}"
