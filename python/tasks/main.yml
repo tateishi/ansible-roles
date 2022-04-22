@@ -14,6 +14,10 @@
   include_tasks: impish.yml
   when: ansible_distribution_release == "impish"
 
+- name: include install tasks for jammy
+  include_tasks: jammy.yml
+  when: ansible_distribution_release == "jammy"
+
 - name: install python package in user
   pip:
     name:
