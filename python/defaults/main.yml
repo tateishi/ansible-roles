@@ -21,9 +21,13 @@ packages_focal:
 
 packages_focal_ex:
   - python3.7
+  - python3.7-distutils
   - python3.9
+  - python3.9-distutils
   - python3.10
+  - python3.10-distutils
   - python3.11
+  - python3.11-distutils
 
 packages_hirsute:
   - python3
