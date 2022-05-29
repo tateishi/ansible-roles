@@ -1,19 +1,19 @@
 - name: clone repository
   git:
-    dest: ~/.config/emacs/cask
+    dest: ~/.config/chemacs/cask
     repo: https://github.com/tateishi/emacs-cask.git
 
 - name: cask install
   shell: ~/.cask/bin/cask install
   args:
-    chdir: ~/.config/emacs/cask
+    chdir: ~/.config/chemacs/cask
 
 - name: cask update
   shell: ~/.cask/bin/cask update
   args:
-    chdir: ~/.config/emacs/cask
+    chdir: ~/.config/chemacs/cask
 
 - name: cask upgrade
   shell: ~/.cask/bin/cask upgrade
   args:
-    chdir: ~/.config/emacs/cask
+    chdir: ~/.config/chemacs/cask

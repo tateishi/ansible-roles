@@ -1,1 +1,1 @@
-(("default" . ((user-emacs-directory . "~/.config/emacs/cask"))))
+(("default" . ((user-emacs-directory . "~/.config/chemacs/cask"))))
