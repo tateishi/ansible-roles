@@ -6,7 +6,7 @@
 
 - name: clone chemacs2
   git:
-    repo: https://github.com/plexus/chemacs2.git
+    repo: https://github.com/plexus/chemacs2
     dest: ~/.config/emacs
     version: 30a2
 
@@ -20,12 +20,7 @@
     src: profiles.el
     dest: ~/.config/chemacs/profiles.el
 
-- name: clone emacs-cask setting
+- name: clone emacs-config
   git:
-    repo: https://github.com/tateishi/emacs-cask.git
-    dest: ~/.config/chemacs/cask
-
-- name: clone cask
-  git:
-    repo: https://github.com/cask/cask.git
-    dest: ~/.cask
+    repo: https://github.com/tateishi/emacs-config
+    dest: ~/.config/chemacs/emacs-config
