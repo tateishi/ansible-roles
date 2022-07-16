@@ -1,0 +1,3 @@
+rsyslog_proto: "udp"
+rsyslog_host: "rsyslog"
+rsyslog_port: "514"
