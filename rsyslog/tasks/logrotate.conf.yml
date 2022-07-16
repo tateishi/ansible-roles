@@ -1,0 +1,11 @@
+- name: copy logrotate config file
+  become: true
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: "0644"
+  loop:
+    - src: "files/rsyslog.hosts"
+      dest: "/etc/logrotate.d/rsyslog.hosts"

@@ -1,0 +1,5 @@
+- name: setup rsyslog.conf
+  include_tasks: rsyslog.conf.yml
+
+- name: setup logrotate config
+  include_tasks: logrotate.conf.yml
