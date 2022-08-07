@@ -1,1 +1,3 @@
-*.*  {% if rsyslog_proto == "tcp" %}@@{% else %}@{% endif %}{{ rsyslog_host }}:{{ rsyslog_port }}
+{% for item in rsyslog %}
+{{ item.pattern }} {% if item.proto == "tcp" %}@@{% else %}@{% endif %}{{ item.host }}:{{ item.port }}
+{% endfor %}

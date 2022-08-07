@@ -1,3 +1,13 @@
 rsyslog_proto: "udp"
 rsyslog_host: "rsyslog"
 rsyslog_port: "514"
+
+rsyslog:
+  - pattern: "*.*"
+    proto: "udp"
+    host: "rsyslog"
+    port: "514"
+  - pattern: "*.*"
+    proto: "tcp"
+    host: "lxd02"
+    port: "5140"
