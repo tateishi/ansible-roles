@@ -5,7 +5,7 @@
     update_cache: yes
 
 - name: install common package
-  become: yes
+  become: true
   apt:
     name: "{{ item }}"
     update_cache: yes
@@ -19,3 +19,11 @@
     - mc
     - bash-completion
     - silversearcher-ag
+    - exa
+    - bat
+
+- name: install common packages from snap
+  become: true
+  snap:
+    name:
+      - bottom
