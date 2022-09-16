@@ -1,4 +1,4 @@
-debian_packages:
+debian_apt_packages:
   - git
   - tig
   - tmux
@@ -10,3 +10,6 @@ debian_packages:
   - silversearcher-ag
   - exa
   - bat
+
+debian_snap:
+  - bottom

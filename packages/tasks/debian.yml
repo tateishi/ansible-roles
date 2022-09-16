@@ -9,21 +9,10 @@
   apt:
     name: "{{ item }}"
     update_cache: yes
-  loop:
-    - git
-    - tig
-    - tmux
-    - screen
-    - tree
-    - htop
-    - mc
-    - bash-completion
-    - silversearcher-ag
-    - exa
-    - bat
+  loop: "{{ debian_apt_packages }}"
 
 - name: install common packages from snap
   become: true
   snap:
-    name:
-      - bottom
+    name: "{{ item }}"
+  loop: "{{ debian_snap }}"
