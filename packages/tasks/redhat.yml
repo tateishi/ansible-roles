@@ -1,0 +1,6 @@
+- name: install common package
+  become: true
+  dnf:
+    name: "{{ item }}"
+    update_cache: yes
+  loop: "{{ redhat_dnf_packages }}"

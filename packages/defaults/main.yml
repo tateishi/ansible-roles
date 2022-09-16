@@ -13,3 +13,10 @@ debian_apt_packages:
 
 debian_snap:
   - bottom
+
+redhat_dnf_packages:
+  - git
+  - tmux
+  - tree
+  - mc
+  - bash-completion
