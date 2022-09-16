@@ -1,4 +1,4 @@
-- name: set timezone to tokyo
-  become: yes
+- name: set timezone
+  become: true
   timezone:
-    name: Asia/Tokyo
+    name: "{{ timezone }}"
