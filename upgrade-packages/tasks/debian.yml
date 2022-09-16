@@ -1,0 +1,7 @@
+- name: apt update & upgrade
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: full
+    force_apt_get: yes
+  when: ansible_facts['os_family'] == 'Debian'
