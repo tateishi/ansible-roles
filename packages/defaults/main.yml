@@ -1,0 +1,12 @@
+debian_packages:
+  - git
+  - tig
+  - tmux
+  - screen
+  - tree
+  - htop
+  - mc
+  - bash-completion
+  - silversearcher-ag
+  - exa
+  - bat

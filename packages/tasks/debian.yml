@@ -1,0 +1,29 @@
+- name: install software-properties-common
+  become: true
+  apt:
+    name: software-properties-common
+    update_cache: yes
+
+- name: install common package
+  become: true
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - git
+    - tig
+    - tmux
+    - screen
+    - tree
+    - htop
+    - mc
+    - bash-completion
+    - silversearcher-ag
+    - exa
+    - bat
+
+- name: install common packages from snap
+  become: true
+  snap:
+    name:
+      - bottom
