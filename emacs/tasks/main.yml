@@ -24,3 +24,4 @@
   git:
     repo: https://github.com/tateishi/emacs-config
     dest: ~/.config/chemacs/emacs-config
+    update: false
