@@ -11,6 +11,18 @@ debian_apt_packages:
   - exa
   - bat
 
+zorinos_apt_packages:
+  - git
+  - tig
+  - tmux
+  - screen
+  - tree
+  - htop
+  - mc
+  - bash-completion
+  - silversearcher-ag
+  - bat
+
 debian_snap:
   - bottom
 

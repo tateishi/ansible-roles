@@ -1,6 +1,14 @@
+- name: family
+  debug:
+    msg: "{{ ansible_facts['os_family'] }}"
+
 - name: install packages for debian
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == 'Debian'
+
+- name: install packages for Zorin OS
+  include_tasks: zorinos.yml
+  when: ansible_facts['os_family'] == 'Zorin OS'
 
 - name: install packages for redhat
   include_tasks: redhat.yml
