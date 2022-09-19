@@ -1,6 +1,6 @@
 - name: family
   debug:
-    msg: "{{ ansible_facts['os_family'] }}"
+    var: ansible_facts['os_family']
 
 - name: install packages for debian
   include_tasks: debian.yml
