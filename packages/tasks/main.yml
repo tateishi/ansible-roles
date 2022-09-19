@@ -1,7 +1,3 @@
-- name: family
-  debug:
-    var: ansible_facts['os_family']
-
 - name: install packages for debian
   include_tasks: debian.yml
   when: ansible_facts['os_family'] == 'Debian'
