@@ -1,0 +1,29 @@
+- name: install packages
+  become: true
+  apt:
+    name: "{{ item }}"
+  loop:
+    - unzip
+    - fontconfig
+
+- name: get Firge zip file
+  get_url:
+    url: "{{ firge_url }}"
+    dest: /tmp
+    mode: 0644
+
+- name: unzip Firge zip file
+  become: true
+  unarchive:
+    src: "/tmp/{{ firge_zip }}"
+    dest: /usr/share/fonts
+    remote_src: true
+
+- name: rebuild font cache
+  become: true
+  shell: fc-cache -fv
+
+- name: remove zip file
+  file:
+    path: "/tmp/{{ firge_zip }}"
+    state: absent
