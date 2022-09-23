@@ -10,6 +10,7 @@ debian_apt_packages:
   - silversearcher-ag
   - exa
   - bat
+  - translate-shell
 
 zorinos_apt_packages:
   - git
@@ -22,6 +23,7 @@ zorinos_apt_packages:
   - bash-completion
   - silversearcher-ag
   - bat
+  - translate-shell
 
 debian_snap:
   - bottom
