@@ -1,4 +1,17 @@
-debian_apt_packages:
+focal_apt_packages:
+  - git
+  - tig
+  - tmux
+  - screen
+  - tree
+  - htop
+  - mc
+  - bash-completion
+  - silversearcher-ag
+  - bat
+  - translate-shell
+
+jammy_apt_packages:
   - git
   - tig
   - tmux

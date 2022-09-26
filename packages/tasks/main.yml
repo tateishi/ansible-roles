@@ -1,6 +1,10 @@
-- name: install packages for debian
-  include_tasks: debian.yml
-  when: ansible_facts['os_family'] == 'Debian'
+- name: install packages for focal
+  include_tasks: focal.yml
+  when: ansible_distribution_release == 'focal'
+
+- name: install packages for jammy
+  include_tasks: jammy.yml
+  when: ansible_distribution_release == 'jammy'
 
 - name: install packages for Zorin OS
   include_tasks: zorinos.yml
