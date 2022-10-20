@@ -1,0 +1,18 @@
+- name: install key
+  become: true
+  get_url:
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    dest: /usr/share/keyrings/githubcli-archive-keyring.gpg
+    mode: '644'
+
+- name: apt repository
+  become: true
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main"
+    state: present
+
+- name: install gh-cli
+  become: true
+  apt:
+    name: gh
+    update_cache: yes
