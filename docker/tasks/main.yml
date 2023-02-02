@@ -44,3 +44,9 @@
   apt:
     name: python3-docker
     update_cache: yes
+
+- name: link docker config
+  file:
+    src: ~/.dotfiles/docker
+    dest: ~/.docker
+    state: link
