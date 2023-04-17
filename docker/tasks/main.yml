@@ -45,8 +45,13 @@
     name: python3-docker
     update_cache: yes
 
+- name: create docker config directory
+  file:
+    path: ~/.docker
+    state: directory
+
 - name: link docker config
   file:
-    src: ~/.dotfiles/docker
-    dest: ~/.docker
+    src: ~/.dotfiles/docker/config.json
+    dest: ~/.docker/config.json
     state: link
