@@ -1,6 +1,6 @@
 - name: checkout dotfiles
   git:
-    repo: https://github.com/tateishi/dotfiles.git
+    repo: https://github.com/tateishi/dotfiles-ansible.git
     dest: ~/.dotfiles
 
 - name: make XDG_CONFIG_HOME directories
