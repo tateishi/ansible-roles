@@ -1,0 +1,3 @@
+---
+# defaults file for dotfiles-chezmoi
+chezmoi_repo: https://github.com/tateishi/dotfiles
