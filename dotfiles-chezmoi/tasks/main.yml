@@ -9,3 +9,5 @@
 
 - name: download repo and apply
   command: "chezmoi init --apply --verbose {{ chezmoi_repo }}"
+  args:
+    creates: ~/.config/chezmoi/chezmoistate.boltdb
