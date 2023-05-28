@@ -39,19 +39,3 @@
     dest: "{{ docker_compose.dest }}"
     mode: "{{ docker_compose.mode }}"
 
-- name: install python3-docker
-  become: yes
-  apt:
-    name: python3-docker
-    update_cache: yes
-
-- name: create docker config directory
-  file:
-    path: ~/.docker
-    state: directory
-
-- name: link docker config
-  file:
-    src: ~/.dotfiles/docker/config.json
-    dest: ~/.docker/config.json
-    state: link
