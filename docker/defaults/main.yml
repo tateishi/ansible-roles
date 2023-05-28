@@ -6,7 +6,7 @@ docker:
     id: 0EBFCD88
   repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release|lower }} stable"
 
-docker_compose_ver: v2.2.3
+docker_compose_ver: v2.18.1
 docker_compose:
   url: "https://github.com/docker/compose/releases/download/{{ docker_compose_ver }}/docker-compose-{{ ansible_system}}-{{ ansible_architecture }}"
   dest: /usr/local/bin/docker-compose
