@@ -3,17 +3,3 @@
   apt:
     name: ledger
     update_cache: yes
-
-- name: checkout dotfiles
-  git:
-    repo: https://github.com/tateishi/dotfiles.git
-    dest: ~/.dotfiles
-
-- name: link config
-  file:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    state: link
-  loop:
-    - src:  ~/.dotfiles/ledger/ledgerrc
-      dest: ~/.ledgerrc
