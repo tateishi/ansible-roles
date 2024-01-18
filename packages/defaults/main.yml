@@ -10,6 +10,7 @@ focal_apt_packages:
   - silversearcher-ag
   - bat
   - translate-shell
+  - jq
 
 jammy_apt_packages:
   - git
@@ -24,6 +25,7 @@ jammy_apt_packages:
   - exa
   - bat
   - translate-shell
+  - jq
 
 zorinos_apt_packages:
   - git
@@ -37,6 +39,7 @@ zorinos_apt_packages:
   - silversearcher-ag
   - bat
   - translate-shell
+  - jq
 
 debian_snap:
   - bottom
