@@ -1,3 +1,5 @@
 - name: py-poetry
   shell: >
     curl -sSL https://install.python-poetry.org | python3 -
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/poetry"
