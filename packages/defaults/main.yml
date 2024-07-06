@@ -1,52 +1,66 @@
 focal_apt_packages:
+  - bash-completion
+  - bat
   - git
+  - htop
+  - jq
+  - mc
+  - screen
+  - silversearcher-ag
   - tig
   - tmux
-  - screen
-  - tree
-  - htop
-  - mc
-  - bash-completion
-  - silversearcher-ag
-  - bat
   - translate-shell
-  - jq
+  - tree
 
 jammy_apt_packages:
+  - bash-completion
+  - bat
+  - exa
   - git
+  - htop
+  - jq
+  - mc
+  - screen
+  - silversearcher-ag
   - tig
   - tmux
-  - screen
-  - tree
-  - htop
-  - mc
-  - bash-completion
-  - silversearcher-ag
-  - exa
-  - bat
   - translate-shell
+  - tree
+
+noble_apt_packages:
+  - bash-completion
+  - bat
+  - git
+  - htop
   - jq
+  - mc
+  - screen
+  - silversearcher-ag
+  - tig
+  - tmux
+  - translate-shell
+  - tree
 
 zorinos_apt_packages:
+  - bash-completion
+  - bat
   - git
+  - htop
+  - jq
+  - mc
+  - screen
+  - silversearcher-ag
   - tig
   - tmux
-  - screen
-  - tree
-  - htop
-  - mc
-  - bash-completion
-  - silversearcher-ag
-  - bat
   - translate-shell
-  - jq
+  - tree
 
 debian_snap:
   - bottom
 
 redhat_dnf_packages:
+  - bash-completion
   - git
+  - mc
   - tmux
   - tree
-  - mc
-  - bash-completion
