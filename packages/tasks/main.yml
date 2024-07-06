@@ -6,6 +6,10 @@
   include_tasks: jammy.yml
   when: ansible_distribution_release == 'jammy'
 
+- name: install packages for noble
+  include_tasks: noble.yml
+  when: ansible_distribution_release == 'noble'
+
 - name: install packages for Zorin OS
   include_tasks: zorinos.yml
   when: ansible_facts['os_family'] == 'Zorin OS'
