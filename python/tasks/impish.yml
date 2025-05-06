@@ -1,4 +1,4 @@
 - name: install python for impish
   become: yes
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages_impish }}"

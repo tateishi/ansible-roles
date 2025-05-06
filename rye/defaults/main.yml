@@ -1,0 +1,3 @@
+url: "https://rye.astral.sh/get"
+
+options: "RYE_INSTALL_OPTION=--yes"

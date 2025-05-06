@@ -1,13 +1,11 @@
----
-# tasks file for dotfiles-chezmoi
 - name: install chezmoi from snap
   become: true
-  snap:
+  community.general.snap:
     name:
       - chezmoi
     classic: true
 
 - name: download repo and apply
-  command: "chezmoi init --apply --verbose {{ chezmoi_repo }}"
+  ansible.builtin.command: "chezmoi init --apply --verbose {{ chezmoi_repo }}"
   args:
     creates: ~/.config/chezmoi/chezmoistate.boltdb

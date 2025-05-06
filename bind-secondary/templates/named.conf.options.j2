@@ -38,7 +38,7 @@ options {
 
 logging {
         channel "default-log" {
-                file "{{dns_log.path}}/default.log" versions 5 size 10M;
+                file "{{dns.log.path}}/default.log" versions 5 size 10M;
                 severity debug;
                 print-time yes;
                 print-severity yes;

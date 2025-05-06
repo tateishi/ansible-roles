@@ -1,0 +1,5 @@
+- name: install packages
+  become: yes
+  ansible.builtin.apt:
+    name: "{{ pkgs }}"
+    update_cache: yes

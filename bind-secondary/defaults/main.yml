@@ -1,7 +1,14 @@
+---
+# defaults file for bind-secondary
+
 dns:
-  zone: tateishi
-  masters:
-    - 10.11.1.32
+  zones:
+    - name: tateishi
+      masters:
+        - 10.11.1.32
+    - name: home
+      masters:
+        - 10.11.1.32
   forwarders:
     - 8.8.8.8
     - 8.8.4.4
@@ -9,14 +16,14 @@ dns:
     - 1.0.0.1
   config_dir: /etc/bind
 
-dns_dump:
-  path: /var/cache/bind/secondary
-  owner: bind
-  group: bind
-  mode: "0755"
+  dump:
+    path: /var/cache/bind/secondary
+    owner: bind
+    group: bind
+    mode: "0755"
 
-dns_log:
-  path: /var/log/named
-  owner: bind
-  group: bind
-  mode: "0755"
+  log:
+    path: /var/log/named
+    owner: bind
+    group: bind
+    mode: "0755"

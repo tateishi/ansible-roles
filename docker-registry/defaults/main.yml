@@ -1,0 +1,8 @@
+reg_path: "/etc/docker/cert.d"
+cert_path: "/usr/local/share/ca-certificates"
+private_registries: []
+# private_registries:
+#   - name: registry1.example.com
+#     ca_url: https://example.com/download/cert/ca1.crt
+#   - name: registry2.example.com
+#     ca_url: https://example.com/download/cert/ca2.crt

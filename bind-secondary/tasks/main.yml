@@ -1,38 +1,40 @@
-- name: bind-secondary
+---
+# tasks file for bind-secondary
+- name: install bind
   become: true
-  apt:
+  ansible.builtin.apt:
     name:
       - bind9
-    update_cache: yes
+    update_cache: true
 
 - name: start bind
   become: true
-  service:
+  ansible.builtin.service:
     name: bind9
     state: started
-    enabled: yes
+    enabled: true
 
-- name: make directory for secondary zone dump
+- name: make directory for secondary
   become: true
-  file:
-    path: "{{ dns_dump.path }}"
+  ansible.builtin.file:
+    path: "{{ dns.dump.path }}"
     state: directory
-    owner: "{{ dns_dump.owner }}"
-    group: "{{ dns_dump.group }}"
-    mode:  "{{ dns_dump.mode }}"
+    owner: "{{ dns.dump.owner }}"
+    group: "{{ dns.dump.group }}"
+    mode: "{{ dns.dump.mode }}"
 
 - name: make directory for log
   become: true
-  file:
-    path: "{{ dns_log.path }}"
+  ansible.builtin.file:
+    path: "{{ dns.log.path }}"
     state: directory
-    owner: "{{ dns_log.owner }}"
-    group: "{{ dns_log.group }}"
-    mode:  "{{ dns_log.mode }}"
+    owner: "{{ dns.log.owner }}"
+    group: "{{ dns.log.group }}"
+    mode: "{{ dns.log.mode }}"
 
 - name: copy named.conf.options
   become: true
-  template:
+  ansible.builtin.template:
     src: named.conf.options.j2
     dest: "{{ dns.config_dir }}/named.conf.options"
     owner: root
@@ -41,7 +43,7 @@
 
 - name: copy named.conf.local
   become: true
-  template:
+  ansible.builtin.template:
     src: named.conf.local.j2
     dest: "{{ dns.config_dir }}/named.conf.local"
     owner: root

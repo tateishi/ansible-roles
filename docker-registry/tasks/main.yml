@@ -1,0 +1,31 @@
+- name: make directory
+  become: yes
+  ansible.builtin.file:
+    path: "{{ reg_path }}/{{ item.name }}"
+    state: directory
+  loop: "{{ private_registries }}"
+
+- name: download cert
+  become: yes
+  ansible.builtin.get_url:
+    url: "{{ item.ca_url }}"
+    dest: "{{ reg_path }}/{{ item.name }}"
+    mode: "0600"
+  loop: "{{ private_registries }}"
+
+- name: restart docker
+  become: yes
+  ansible.builtin.systemd_service:
+    state: restarted
+    name: docker
+
+- name: download cert
+  become: yes
+  ansible.builtin.get_url:
+    url: "{{ item.ca_url }}"
+    dest: "{{ cert_path }}"
+  loop: "{{ private_registries }}"
+
+- name: Update cert index
+  become: yes
+  shell: /usr/sbin/update-ca-certificates

@@ -6,12 +6,13 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "{{ dns.zone }}" {
+{% for zone in dns.zones %}
+zone "{{ zone.name }}" {
     type slave;
     masterfile-format text;
-    file "{{dns_dump.path}}/{{ dns.zone }}";
+    file "{{dns.dump.path}}/{{ zone.name }}";
     masters {
-    {% for master in dns.masters %}
+    {% for master in zone.masters %}
       {{ master }};
     {% endfor  -%}
     };
@@ -21,3 +22,5 @@ zone "{{ dns.zone }}" {
         192.168.0.0/16;
     };
 };
+
+{% endfor %}

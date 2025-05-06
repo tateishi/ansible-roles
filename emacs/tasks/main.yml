@@ -1,27 +1,27 @@
 - name: emacs install
   become: true
-  snap:
+  community.general.snap:
     name: emacs
     classic: true
 
 - name: clone chemacs2
-  git:
-    repo: https://github.com/plexus/chemacs2
-    dest: ~/.config/emacs
-    version: 30a2
+  ansible.builtin.git:
+    repo: "{{ chemacs_url }}"
+    dest: "{{ chemacs_dest_dir }}"
+    version: "{{ chemacs_version }}"
 
 - name: make .config/chemacs directory
-  file:
-    path: ~/.config/chemacs
+  ansible.builtin.file:
+    path: "{{ chemacs_profile_dir }}"
     state: directory
 
 - name: copy profiles.el
-  copy:
+  ansible.builtin.copy:
     src: profiles.el
-    dest: ~/.config/chemacs/profiles.el
+    dest: "{{ chemacs_profile_dir }}/profiles.el"
 
 - name: clone emacs-config
-  git:
-    repo: https://github.com/tateishi/emacs-config
-    dest: ~/.config/chemacs/emacs-config
+  ansible.builtin.git:
+    repo: "{{ emacs_config_url }}"
+    dest: "{{ emacs_config_dir }}"
     update: false

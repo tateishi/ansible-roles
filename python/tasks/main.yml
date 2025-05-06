@@ -18,11 +18,25 @@
   include_tasks: jammy.yml
   when: ansible_distribution_release == "jammy"
 
+- name: include install tasks for noble
+  include_tasks: noble.yml
+  when: ansible_distribution_release == "noble"
+
 - name: install python package in user
-  pip:
+  ansible.builtin.pip:
     name:
       - pipenv
       - black
       - isort
     executable: pip3
     extra_args: --user
+  when: ansible_distribution_release in ["bionic", "focal", "hirsute", "impish", "jammy"]
+
+- name: install items by pipx
+  community.general.pipx:
+    name: "{{ item }}"
+  when: ansible_distribution_release in ["noble"]
+  loop:
+    - pipenv
+    - black
+    - isort

@@ -1,0 +1,9 @@
+key_url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+key_file: /usr/share/keyrings/jenkins-keyring.asc
+
+repo: "deb [signed-by={{ key_file }}] https://pkg.jenkins.io/debian-stable binary/"
+
+pkgs:
+  - fontconfig
+  - openjdk-17-jre
+  - jenkins

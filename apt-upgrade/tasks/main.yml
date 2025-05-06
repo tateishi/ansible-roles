@@ -1,6 +1,7 @@
 - name: apt update & upgrade
-  become: yes
-  apt:
-    update_cache: yes
+  become: true
+  ansible.builtin.apt:
+    update_cache: true
     upgrade: full
-    force_apt_get: yes
+    force_apt_get: true
+  when: do_apt_upgrade

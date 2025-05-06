@@ -1,0 +1,6 @@
+repo: "http://gitea.home/tadatoshi/authorized_key.git"
+dest: "~/.local/lib/authorized_key"
+branch: "main"
+ssh_dir: "~/.ssh"
+
+do_authorized_key: false

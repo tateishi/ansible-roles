@@ -1,0 +1,59 @@
+- name: download gitea binary
+  become: yes
+  ansible.builtin.get_url:
+    url: "https://dl.gitea.com/gitea/{{ gitea.version }}/gitea-{{ gitea.version }}-linux-amd64"
+    dest: "/usr/local/bin/gitea"
+    mode: "755"
+
+- name: create git group
+  become: yes
+  ansible.builtin.group:
+    name: git
+    system: yes
+
+- name: create git user
+  become: yes
+  ansible.builtin.user:
+    name: git
+    shell: /bin/bash
+    system: yes
+    create_home: yes
+    group: git
+    home: /home/git
+    password_lock: yes
+    comment: "Git Version Control"
+
+- name: make directories
+  become: yes
+  ansible.builtin.file:
+    name: "/var/lib/gitea/{{ item }}"
+    state: directory
+    mode: "0750"
+    owner: git
+    group: git
+  loop:
+    - custom
+    - data
+    - log
+
+- name: make directoy /etc/gitea
+  become: yes
+  ansible.builtin.file:
+    name: "/etc/gitea"
+    state: directory
+    mode: "0770"
+    owner: root
+    group: git
+
+- name: copy unit file
+  become: yes
+  ansible.builtin.template:
+    src: templates/gitea.service.j2
+    dest: /etc/systemd/system/gitea.service
+
+- name: gitea enabled and started
+  become: yes
+  ansible.builtin.systemd_service:
+    name: gitea
+    enabled: yes
+    state: started

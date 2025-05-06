@@ -1,19 +1,6 @@
-- name: install packages for focal
-  include_tasks: focal.yml
-  when: ansible_distribution_release == 'focal'
-
-- name: install packages for jammy
-  include_tasks: jammy.yml
-  when: ansible_distribution_release == 'jammy'
-
-- name: install packages for noble
-  include_tasks: noble.yml
-  when: ansible_distribution_release == 'noble'
-
-- name: install packages for Zorin OS
-  include_tasks: zorinos.yml
-  when: ansible_facts['os_family'] == 'Zorin OS'
-
-- name: install packages for redhat
-  include_tasks: redhat.yml
-  when: ansible_facts['os_family'] == 'RedHat'
+- name: install packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: true
+  loop: "{{ install_packages }}"

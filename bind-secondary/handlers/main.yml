@@ -1,3 +1,6 @@
+---
+# handlers file for bind-secondary
+
 - name: restart bind
   become: true
   service:

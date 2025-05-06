@@ -1,4 +1,6 @@
 - name: set timezone
   become: true
-  timezone:
+  ansible.builtin.timezone:
     name: "{{ timezone }}"
+  when: timezone is defined
+  

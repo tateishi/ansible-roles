@@ -1,0 +1,22 @@
+---
+# task file for authorized_key
+- name: checkout authorized_key
+  ansible.builtin.git:
+    repo: "{{ repo }}"
+    dest: "{{ dest }}"
+    version: "{{ branch }}"
+  when: do_authorized_key
+
+- name: make directory .ssh
+  ansible.builtin.file:
+    state: directory
+    path: "{{ ssh_dir }}"
+    mode: 0700
+  when: do_authorized_key
+
+- name: copy authorized_key
+  ansible.builtin.copy:
+    remote_src: true
+    src: "{{ dest }}/authorized_keys"
+    dest: "{{ ssh_dir }}/authorized_keys"
+  when: do_authorized_key

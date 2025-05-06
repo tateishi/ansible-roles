@@ -1,20 +1,20 @@
 - name: prerequisite
   become: yes
-  apt:
+  ansible.builtin.apt:
     name: software-properties-common
 
 - name: add deadsnakes
   become: yes
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ repository }}"
 
 - name: install python for focal
   become: yes
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages_focal }}"
 
 - name: install extra version of python for focal
   become: yes
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages_focal_ex }}"
   when: (python_extra_version is defined) and python_extra_version

@@ -1,0 +1,16 @@
+- name: add apt-key
+  become: yes
+  ansible.builtin.get_url:
+    url: "{{ key_url }}"
+    dest: "{{ key_file }}"
+
+- name: add repository
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: "{{ repo }}"
+
+- name: install packages
+  become: yes
+  ansible.builtin.apt:
+    name: "{{ pkgs }}"
+    update_cache: yes

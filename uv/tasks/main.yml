@@ -1,0 +1,5 @@
+- name: uv
+  ansible.builtin.shell: >
+    curl -LsSf {{ url }} | sh
+  args:
+    creates: "{{ ansible_env.HOME }}/.uv"

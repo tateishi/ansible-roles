@@ -1,20 +1,14 @@
-- name: ansibleのリポジトリ追加
-  become: true
-  apt_repository:
-    repo: ppa:ansible/ansible
-
 - name: ansibleインストール
-  become: true
-  apt:
+  community.general.pipx:
+    install_deps: true
     name: ansible
-    update_cache: yes
 
 - name: ansible role directory
-  file:
+  ansible.builtin.file:
     path: ~/.local/lib/ansible
     state: directory
 
 - name: checkout roles
-  git:
+  ansible.builtin.git:
     repo: https://github.com/tateishi/ansible-roles.git
     dest: ~/.local/lib/ansible/roles
