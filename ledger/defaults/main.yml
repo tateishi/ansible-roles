@@ -1,0 +1,19 @@
+wallet_url: "http://gitea.home/wallet/wallet.git"
+wallet_dir: "~/wks/ledger/wallet"
+wallet_version: "main"
+
+kakei_url: "http://gitea.home/wallet/ledger_kakei.git"
+kakei_dir: "~/wks/ledger/ledger_kakei"
+kakei_version: "main"
+
+tadatoshi_url: "http://gitea.home/wallet/ledger_tadatoshi.git"
+tadatoshi_dir: "~/wks/ledger/ledger_tadatoshi"
+tadatoshi_version: "main"
+
+accounts_url: "http://gitea.home/wallet/accounts.git"
+accounts_dir: "~/wks/ledger/accounts"
+accounts_version: "main"
+
+cmd_url: "http://gitea.home/wallet/ledger_cmd.git"
+cmd_dir: "~/wks/apps/ledger_cmd"
+cmd_version: "main"

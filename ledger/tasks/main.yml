@@ -1,5 +1,35 @@
 - name: install ledger
   become: true
-  apt:
+  ansible.builtin.apt:
     name: ledger
-    update_cache: yes
+    update_cache: true
+
+- name: clone wallet repository
+  ansible.builtin.git:
+    repo: "{{ wallet_url }}"
+    dest: "{{ wallet_dir }}"
+    version: "{{ wallet_version }}"
+
+- name: clone kakei repository
+  ansible.builtin.git:
+    repo: "{{ kakei_url }}"
+    dest: "{{ kakei_dir }}"
+    version: "{{ kakei_version }}"
+
+- name: clone tadatoshi repository
+  ansible.builtin.git:
+    repo: "{{ tadatoshi_url }}"
+    dest: "{{ tadatoshi_dir }}"
+    version: "{{ tadatoshi_version }}"
+
+- name: clone accounts repository
+  ansible.builtin.git:
+    repo: "{{ accounts_url }}"
+    dest: "{{ accounts_dir }}"
+    version: "{{ accounts_version }}"
+
+- name: clone cmd repository
+  ansible.builtin.git:
+    repo: "{{ cmd_url }}"
+    dest: "{{ cmd_dir }}"
+    version: "{{ cmd_version }}"
