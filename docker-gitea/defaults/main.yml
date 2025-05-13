@@ -1,0 +1,3 @@
+gitea_repo_url: "https://github.com/tateishi/docker-gitea"
+gitea_repo_dir: "~/wks/docker-gitea"
+gitea_repo_version: "main"

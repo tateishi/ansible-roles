@@ -1,0 +1,5 @@
+- name: clone docker compose file
+  ansible.builtin.git:
+    repo: "{{ gitea_repo_url }}"
+    dest: "{{ gitea_repo_dir }}"
+    version: "{{ gitea_repo_version }}"
