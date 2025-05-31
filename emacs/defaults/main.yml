@@ -2,5 +2,7 @@ chemacs_url: "https://github.com/plexus/chemacs2"
 chemacs_version: "main"
 chemacs_dest_dir: "~/.config/emacs"
 chemacs_profile_dir: "~/.config/chemacs"
+chemacs_emacs_config_dir: "~/.config/chemacs/emacs-config"
+
 emacs_config_url: "https://github.com/tateishi/emacs-config"
-emacs_config_dir: "~/.config/chemacs/emacs-config"
+emacs_config_dir: "~/.config/emacs"

@@ -1,0 +1,27 @@
+- name: emacs install
+  become: true
+  community.general.snap:
+    name: emacs
+    classic: true
+
+- name: clone chemacs2
+  ansible.builtin.git:
+    repo: "{{ chemacs_url }}"
+    dest: "{{ chemacs_dest_dir }}"
+    version: "{{ chemacs_version }}"
+
+- name: make .config/chemacs directory
+  ansible.builtin.file:
+    path: "{{ chemacs_profile_dir }}"
+    state: directory
+
+- name: copy profiles.el
+  ansible.builtin.copy:
+    src: profiles.el
+    dest: "{{ chemacs_profile_dir }}/profiles.el"
+
+- name: clone emacs-config
+  ansible.builtin.git:
+    repo: "{{ emacs_config_url }}"
+    dest: "{{ chemacs_emacs_config_dir }}"
+    update: false

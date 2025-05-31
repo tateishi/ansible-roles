@@ -1,0 +1,11 @@
+- name: emacs install
+  become: true
+  community.general.snap:
+    name: emacs
+    classic: true
+
+- name: clone emacs-config
+  ansible.builtin.git:
+    repo: "{{ emacs_config_url }}"
+    dest: "{{ emacs_config_dir }}"
+    update: false
