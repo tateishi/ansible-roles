@@ -1,0 +1,8 @@
+galaxy_info:
+  author: tadatoshi
+  description: Install Rust via rustup
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all

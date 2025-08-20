@@ -1,0 +1,16 @@
+- name: Download rustup installer
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/rustup-init.sh
+    mode: '0755'
+
+- name: Run rustup installer
+  shell: /tmp/rustup-init.sh -y
+  args:
+    creates: "{{ rust_home }}/.cargo/bin/cargo"
+
+- name: Source cargo env in .bashrc
+  lineinfile:
+    path: ~/.bashrc
+    line: 'source $HOME/.cargo/env'
+    state: present

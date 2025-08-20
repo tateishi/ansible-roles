@@ -1,0 +1,1 @@
+rust_home: "/home/{{ ansible_user_id }}"
