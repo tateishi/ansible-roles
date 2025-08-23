@@ -1,0 +1,19 @@
+- name: install pgp key
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ pgp_key_url }}"
+    dest: "{{ pgp_key_dest }}"
+    mode: "0644"
+
+- name: add repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "{{ repo }}"
+    filename: "microsoft-edge"
+    state: present
+
+- name: install package
+  become: true
+  ansible.builtin.apt:
+    name: microsoft-edge-stable
+    update_cache: true
