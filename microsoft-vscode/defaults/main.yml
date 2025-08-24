@@ -1,0 +1,5 @@
+pgp_key_url: "https://packages.microsoft.com/keys/microsoft.asc"
+pgp_key_dest: "/usr/share/keyrings/microsoft.asc"
+pgp_key_gpg: "/usr/share/keyrings/microsoft.gpg"
+pgp_key_repo: "https://packages.microsoft.com/repos/code"
+repo: "deb [arch=amd64 signed-by={{ pgp_key_gpg }}] {{ pgp_key_repo }} stable main"

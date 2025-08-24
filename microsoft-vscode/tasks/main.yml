@@ -1,0 +1,23 @@
+- name: install pgp key
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ pgp_key_url }}"
+    dest: "{{ pgp_key_dest }}"
+    mode: '0644'
+
+- name: dearmor
+  become: true
+  ansible.builtin.command: gpg --yes --dearmor -o "{{ pgp_key_gpg }}" "{{ pgp_key_dest }}"
+
+- name: add repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "{{ repo }}"
+    filename: "microsoft-code"
+    state: present
+
+- name: install package
+  become: true
+  ansible.builtin.apt:
+    name: code
+    update_cache: true
