@@ -27,3 +27,25 @@
   file:
     path: "/tmp/{{ hackgen_zip }}"
     state: absent
+
+- name: get HackGen NF zip file
+  get_url:
+    url: "{{ hackgen_nf_url }}"
+    dest: /tmp
+    mode: 0644
+
+- name: unzip HackGen NF zip file
+  become: true
+  unarchive:
+    src: "/tmp/{{ hackgen_nf_zip }}"
+    dest: /usr/share/fonts
+    remote_src: true
+
+- name: rebuild font cache
+  become: true
+  shell: fc-cache -fv
+
+- name: remove zip file
+  file:
+    path: "/tmp/{{ hackgen_nf_zip }}"
+    state: absent

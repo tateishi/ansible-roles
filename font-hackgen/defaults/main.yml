@@ -1,2 +1,6 @@
-hackgen_url: https://github.com/yuru7/HackGen/releases/download/v2.7.1/HackGen_v2.7.1.zip
-hackgen_zip: HackGen_v2.7.1.zip
+hackgen_ver: v2.10.0
+
+hackgen_url: "https://github.com/yuru7/HackGen/releases/download/{{ hackgen_ver }}/HackGen_{{ hackgen_ver }}.zip"
+hackgen_zip: "HackGen_{{ hackgen_ver }}.zip"
+hackgen_nf_url: "https://github.com/yuru7/HackGen/releases/download/{{ hackgen_ver }}/HackGen_NF_{{ hackgen_ver }}.zip"
+hackgen_nf_zip: "HackGen_NF_{{ hackgen_ver }}.zip"
