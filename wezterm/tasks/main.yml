@@ -1,0 +1,25 @@
+- name: install pgp key
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ pgp_key_url }}"
+    dest: "{{ pgp_key_dest }}"
+    mode: '0644'
+
+- name: add repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "{{ repo }}"
+    filename: "wezterm"
+    state: present
+
+- name: install package
+  become: true
+  ansible.builtin.apt:
+    name: wezterm
+    update_cache: true
+
+- name: checkout configuration
+  ansible.builtin.git:
+    repo: "{{ git_repo }}"
+    dest: "{{ git_dest }}"
+    version: "{{ git_branch }}"

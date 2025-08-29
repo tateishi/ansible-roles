@@ -1,0 +1,8 @@
+pgp_key_url: "https://apt.fury.io/wez/gpg.key"
+pgp_key_dest: "/usr/share/keyrings/wezterm-fury.asc"
+wezterm_repo: "https://apt.fury.io/wez/"
+repo: "deb [arch=amd64 signed-by={{ pgp_key_dest }}] {{ wezterm_repo }} * *"
+
+git_repo: "https://github.com/tateishi/wezterm-config.git"
+git_dest: "~/.config/wezterm"
+git_branch: "main"
