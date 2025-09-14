@@ -2,14 +2,14 @@
   become: true
   ansible.builtin.get_url:
     url: "{{ bin_url }}"
-    dest: "{{ bin_dir }}"
+    dest: "{{ bin_dest }}"
     mode: 0755
 
 - name: download config
   become: true
   ansible.builtin.get_url:
     url: "{{ conf_url }}"
-    dest: "{{ conf_dir }}"
+    dest: "{{ conf_dest }}"
     mode: 0644
 
 - name: install unit file

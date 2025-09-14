@@ -1,9 +1,9 @@
 version: 1.9.0
 bin_url: https://github.com/jtroo/kanata/releases/download/v{{ version }}/kanata
-bin_dir: /usr/local/bin
+bin_dest: /usr/local/bin/kanata
 conf_repo: http://gitea.home/tadatoshi/kanata-conf/
 conf_url_path: raw/branch/main
 conf_file: layout1.kbd
 conf_url: "{{ conf_repo }}/{{ conf_url_path }}/{{ conf_file }}"
-conf_dir: /etc/kanata
+conf_dest: "/etc/kanata/{{ conf_file }}"
 unit_file: /etc/systemd/system/kanata.service
