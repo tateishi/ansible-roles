@@ -5,6 +5,15 @@
     dest: "{{ bin_dest }}"
     mode: 0755
 
+- name: mkdir config dir
+  become: true
+  ansible.builtin.file:
+    path: "{{ conf_dir }}"
+    state: directory
+    recurse: true
+    owner: root
+    group: root
+
 - name: download config
   become: true
   ansible.builtin.get_url:
